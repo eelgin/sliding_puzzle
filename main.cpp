@@ -4,8 +4,6 @@
 
 static void show_usage(std::string name)
 {
-  //TODO add vim and wasd support
-  //     add solution checker 
   std::cerr << "Usage: " << name << " <option> [depth]\n"
             << "\nObjective:\n"
             << "\tArrange the puzzle in ascending hexadecimal order (0,1,2,..,c,d,e)\n"
@@ -25,7 +23,8 @@ int main(int argc,
 {
   
   int depth;
-
+  
+  //arg processing
   if(argc < 2)
   {
     depth = 200;
@@ -68,8 +67,9 @@ int main(int argc,
   }
  
   puzzle _puzzle(depth);
-  
   std::string move;
+  
+  //main game loop
   while(!_puzzle.is_solved())
   {
     _puzzle.draw_puzzle();

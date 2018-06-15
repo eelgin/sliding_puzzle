@@ -22,18 +22,33 @@ class puzzle
       left,
       right
     };
+    
+    // x/y axis size
     const int x_axis = 4, y_axis = 4;
     const std::string solution[15] = 
     { 
       "0","1","2","3","4","5","6","7",
       "8","9","a","b","c","d","e"
     };
+    //x and y coordinates for open space
     int _x, _y;
-    std::string grid[4][4];
+
+    //array to hold board data
+    std::string grid[x_axis][y_axis];
+    
+    //fills grid once constructed
     void populate_grid();
+    
+    //shuffles grid by applying random moves
     void shuffle_grid(int depth);
-    std::string iths(int d); //int to hex string
+    
+    //int to hex string function
+    std::string iths(int d);
+    
+    //function to clear console
     void clear_screen();
+    
+    //answer checker
     bool check_move(direction_e direction);
 
 };

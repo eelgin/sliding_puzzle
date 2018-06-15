@@ -13,6 +13,7 @@ puzzle::puzzle(int depth)
 
 void puzzle::populate_grid()
 {
+  //fills game grid
   int z = 0;
   for(int i = 0; i < y_axis; i++)
   {
@@ -21,7 +22,8 @@ void puzzle::populate_grid()
       grid[i][j] = iths(z++);
     }
   }
-
+  
+  //adds empty space and sets coordinates
   grid[y_axis-1][x_axis-1] = " ";
   _x = x_axis-1;
   _y = y_axis-1;
@@ -62,7 +64,6 @@ std::string puzzle::iths(int d)
 
 void puzzle::draw_puzzle()
 { 
-  //TODO add auto detect to
   clear_screen();
 
   for(int i = 0; i < y_axis; i++)
@@ -156,7 +157,6 @@ bool puzzle::check_move(direction_e direction)
   return false;
 }
 
-//TODO implement check
 bool puzzle::is_solved()
 {
   int indx = 0;
