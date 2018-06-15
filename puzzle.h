@@ -1,0 +1,42 @@
+#ifndef PUZZLE_H
+#define PUZZLE_H
+
+#include <string>
+
+class puzzle
+{
+  public:
+    puzzle(int depth);
+    void draw_puzzle();
+    bool move_up();
+    bool move_down();
+    bool move_left();
+    bool move_right();
+    bool is_solved();
+
+  private:
+    enum direction_e
+    {
+      up,
+      down,
+      left,
+      right
+    };
+    const int x_axis = 4, y_axis = 4;
+    const std::string solution[15] = 
+    { 
+      "0","1","2","3","4","5","6","7",
+      "8","9","a","b","c","d","e"
+    };
+    int _x, _y;
+    std::string grid[4][4];
+    void populate_grid();
+    void shuffle_grid(int depth);
+    std::string iths(int d); //int to hex string
+    void clear_screen();
+    bool check_move(direction_e direction);
+
+};
+
+
+#endif /* PUZZLE_H */
